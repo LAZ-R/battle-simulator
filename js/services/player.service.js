@@ -336,7 +336,7 @@ export function splitPool16IntoTwoBalancedTeams(instancedPool16) {
  * @returns 
  */
 function getBalancedUnitRanges(groups, params = {
-  K: 15000,
+  K: 1500, // was 15k
   bonus: 0.5,
   variance: 0.30,
 }) {

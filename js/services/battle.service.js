@@ -50,7 +50,7 @@ let isBlocking = false;
 let selectedBlocker = null;
 let assignedDefenders = [];
 
-let arrowColor = '#ffffff';
+let arrowColor = '#5c5c5c';
 
 export function startGame() {
   let players = [player1, player2];
@@ -101,6 +101,22 @@ function setDomForPhase1() {
   const currentDefendingPlayerContainerElement = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}Container`);
   currentDefendingPlayerContainerElement.classList.remove('active');
   setPlayerTopBar(CURRENT_DEFENDING_PLAYER);
+
+  setTimeout(() => {
+    
+    // renversement des blocks DEF
+    for (let group of CURRENT_DEFENDING_PLAYER.groups) {
+      let element = document.getElementById(group.id);
+      element.classList.toggle('spinned', CURRENT_PHASE == 1);
+    }
+    let atkDom = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}TopAtk`);
+    atkDom.classList.toggle('spinned', CURRENT_PHASE == 1);
+    let unitsDom = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}TopUnits`);
+    unitsDom.classList.toggle('spinned', CURRENT_PHASE == 1);
+    let defDom = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}TopDef`);
+    defDom.classList.toggle('spinned', CURRENT_PHASE == 1);
+  }, 20);
+
 }
 
 function setDomForPhase2() {
@@ -113,10 +129,38 @@ function setDomForPhase2() {
 
   // Current defending player
   const currentDefendingPlayerBottomAreaElement = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}BottomArea`);
-  currentDefendingPlayerBottomAreaElement.innerHTML = `<button class="lzr-button ${currentBattle.battles.length != 0 ? '' : 'lzr-solid'}" onclick="goToPhase3()" ${currentBattle.battles.length != 0 ? 'disabled' : ''}>${currentBattle.battles.length != 0 ? 'Bloquez toutes les unités ennemies' : 'Contrer l\'offensive'}</button>`;
+  if (currentBattle.battles.length == 0) {
+    currentDefendingPlayerBottomAreaElement.innerHTML = `<button class="lzr-button lzr-solid" onclick="goToPhase3()">Contrer l'offensive</button>`;
+  } else {
+    currentDefendingPlayerBottomAreaElement.innerHTML = `<span class="keep-blocking">Bloquez toutes les unités ennemies</span>`;
+  }
   const currentDefendingPlayerContainerElement = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}Container`);
   currentDefendingPlayerContainerElement.classList.add('active');
   setPlayerTopBar(CURRENT_DEFENDING_PLAYER);
+
+  // renversement des blocks DEF
+  for (let group of CURRENT_DEFENDING_PLAYER.groups) {
+    let element = document.getElementById(group.id);
+    element.classList.toggle('spinned', CURRENT_PHASE != 2);
+  }
+  let atkDomDef = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}TopAtk`);
+  atkDomDef.classList.toggle('spinned', CURRENT_PHASE != 2);
+  let unitsDomDef = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}TopUnits`);
+  unitsDomDef.classList.toggle('spinned', CURRENT_PHASE != 2);
+  let defDom = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}TopDef`);
+  defDom.classList.toggle('spinned', CURRENT_PHASE != 2);
+
+  // renversement des blocks ATK
+  for (let group of CURRENT_ATTACKING_PLAYER.groups) {
+    let element = document.getElementById(group.id);
+    element.classList.toggle('spinned', CURRENT_PHASE == 2);
+  }
+  let atkDomAtk = document.getElementById(`${CURRENT_ATTACKING_PLAYER.id}TopAtk`);
+    atkDomAtk.classList.toggle('spinned', CURRENT_PHASE == 2);
+  let unitsDomAtk = document.getElementById(`${CURRENT_ATTACKING_PLAYER.id}TopUnits`);
+    unitsDomAtk.classList.toggle('spinned', CURRENT_PHASE == 2);
+  let defDomDef = document.getElementById(`${CURRENT_ATTACKING_PLAYER.id}TopDef`);
+    defDomDef.classList.toggle('spinned', CURRENT_PHASE == 2);
 }
 
 function setDomForPhase3() {
@@ -131,6 +175,30 @@ function setDomForPhase3() {
   const currentDefendingPlayerContainerElement = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}Container`);
   currentDefendingPlayerContainerElement.classList.remove('active');
   setPlayerTopBar(CURRENT_DEFENDING_PLAYER);
+
+  // renversement des blocks DEF
+  for (let group of CURRENT_DEFENDING_PLAYER.groups) {
+    let element = document.getElementById(group.id);
+    element.classList.toggle('spinned', CURRENT_PHASE != 3);
+  }
+  let atkDomDef = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}TopAtk`);
+  atkDomDef.classList.toggle('spinned', CURRENT_PHASE != 3);
+  let unitsDomDef = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}TopUnits`);
+  unitsDomDef.classList.toggle('spinned', CURRENT_PHASE != 3);
+  let defDom = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}TopDef`);
+  defDom.classList.toggle('spinned', CURRENT_PHASE != 3);
+
+  // renversement des blocks ATK
+  for (let group of CURRENT_ATTACKING_PLAYER.groups) {
+    let element = document.getElementById(group.id);
+    element.classList.toggle('spinned', CURRENT_PHASE != 3);
+  }
+  let atkDomAtk = document.getElementById(`${CURRENT_ATTACKING_PLAYER.id}TopAtk`);
+    atkDomAtk.classList.toggle('spinned', CURRENT_PHASE != 3);
+  let unitsDomAtk = document.getElementById(`${CURRENT_ATTACKING_PLAYER.id}TopUnits`);
+    unitsDomAtk.classList.toggle('spinned', CURRENT_PHASE != 3);
+  let defDomDef = document.getElementById(`${CURRENT_ATTACKING_PLAYER.id}TopDef`);
+    defDomDef.classList.toggle('spinned', CURRENT_PHASE != 3);
 }
 
 function goToPhase2() {
@@ -375,7 +443,7 @@ function onGroupClick(groupId) {
       if (isAllBlocked) {
         currentDefendingPlayerBottomAreaElement.innerHTML = `<button class="lzr-button lzr-solid" onclick="goToPhase3()">Contrer l'offensive</button>`;
       } else {
-        currentDefendingPlayerBottomAreaElement.innerHTML = `<button class="lzr-button" onclick="goToPhase3()" disabled>Bloquez toutes les unités ennemies</button>`;
+        currentDefendingPlayerBottomAreaElement.innerHTML = `<span class="keep-blocking">Bloquez toutes les unités ennemies</span>`;
       }
     }
   }
@@ -507,7 +575,7 @@ function onSplitGroup(groupId) {
     if (isAllBlocked) {
       currentDefendingPlayerBottomAreaElement.innerHTML = `<button class="lzr-button lzr-solid" onclick="goToPhase3()">Contrer l'offensive</button>`;
     } else {
-      currentDefendingPlayerBottomAreaElement.innerHTML = `<button class="lzr-button" onclick="goToPhase3()" disabled>Bloquez toutes les unités ennemies</button>`;
+      currentDefendingPlayerBottomAreaElement.innerHTML = `<span class="keep-blocking">Bloquez toutes les unités ennemies</span>`;
     }
 }
 window.onSplitGroup = onSplitGroup;

@@ -82,10 +82,9 @@ window.onGoToGameClick = onGoToGameClick;
 export function setPlayersGameDom() {
   MAIN.innerHTML = `
     <div class="players-container">
+      <svg id="battlefield-lines"></svg>
       <div id="player2Container" class="player-container player-2" style="--color: ${player2.color};">${getPlayerDom(player2)}</div>
       <div id="player1Container" class="player-container player-1" style="--color: ${player1.color};">${getPlayerDom(player1)}</div>
-      
-      <svg id="battlefield-lines"></svg>
     </div>
   `;
 
@@ -95,7 +94,7 @@ export function setPlayersGameDom() {
 function getPlayerCustomisationDom(player) {
   return `
     <div class="custom-group-block">
-      <span>Couleur de l'armée</span>
+      <span>Choisissez les couleurs<br>de votre armée</span>
       <div class="custom-group-line">
         ${getColorButtons(player)}
       </div>
@@ -225,15 +224,15 @@ function getPlayerDom(player) {
   }
   return `
     <div class="top-area">
-      <div class="top-block atk">
+      <div id="${player.id}TopAtk" class="top-block atk">
         <span>ATK</span>
         <span id="${player.id}GlobalAtkValue" class="value">${getPlayerTotalAtk(player)}</span>
       </div>
-      <div class="top-block units">
+      <div id="${player.id}TopUnits" class="top-block units">
         <span>Unités totales</span>
         <span id="${player.id}GlobalUnitsValue" class="value">${getPlayerTotalUnitsCount(player)}</span>
       </div>
-      <div class="top-block def">
+      <div id="${player.id}TopDef" class="top-block def">
         <span>DEF</span>
         <span id="${player.id}GlobalDefValue" class="value">${getPlayerTotalDef(player)}</span>
       </div>
