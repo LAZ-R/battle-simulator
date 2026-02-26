@@ -1,13 +1,13 @@
 import { formatNumber, getRandomIntegerBetween } from "../utils/math.utils.js";
 
 export const COLORS = [
-  { id: 'cyan',     hsl: 'hsl(180, 70%,  60%)', },
-  { id: 'magenta',  hsl: 'hsl(300, 80%,  70%)', },
-  { id: 'yellow',   hsl: 'hsl(60,  70%,  60%)', },
+  { id: 'cyan',     hsl: 'hsl(180, 70%,  60%)', filter: 'brightness(0) saturate(100%) invert(76%) sepia(89%) saturate(303%) hue-rotate(122deg) brightness(90%) contrast(94%)', },
+  { id: 'magenta',  hsl: 'hsl(300, 80%,  70%)', filter: 'brightness(0) saturate(100%) invert(62%) sepia(95%) saturate(1169%) hue-rotate(255deg) brightness(98%) contrast(91%)', },
+  { id: 'yellow',   hsl: 'hsl(60,  70%,  60%)', filter: 'brightness(0) saturate(100%) invert(84%) sepia(73%) saturate(418%) hue-rotate(1deg) brightness(96%) contrast(84%)', },
   
-  { id: 'mint',     hsl: 'hsl(150, 50%,  70%)', },
-  { id: 'lavender', hsl: 'hsl(270, 80%,  80%)', },
-  { id: 'peach',    hsl: 'hsl(30,  80%,  70%)', },
+  { id: 'mint',     hsl: 'hsl(150, 50%,  70%)', filter: 'brightness(0) saturate(100%) invert(86%) sepia(28%) saturate(433%) hue-rotate(91deg) brightness(89%) contrast(92%)', },
+  { id: 'lavender', hsl: 'hsl(270, 80%,  80%)', filter: 'brightness(0) saturate(100%) invert(69%) sepia(7%) saturate(2434%) hue-rotate(223deg) brightness(103%) contrast(92%)', },
+  { id: 'peach',    hsl: 'hsl(30,  80%,  70%)', filter: 'brightness(0) saturate(100%) invert(84%) sepia(91%) saturate(3386%) hue-rotate(305deg) brightness(100%) contrast(89%)', },
 ];
 export const SHIELDS = [
   { id: 'shield-A' },
@@ -72,17 +72,17 @@ export let player2 = {
 const RAW_GROUPS = [
    // Attaque == 1
    { id: '01', base_atk: 1, base_def: 1, name: "Paysans désarmés" },
-   { id: '02', base_atk: 1, base_def: 2, name: "Miliciens débutants" },
-   { id: '03', base_atk: 1, base_def: 3, name: "Gardes urbains" },
-   { id: '04', base_atk: 1, base_def: 4, name: "Gardes des remparts" },
-   { id: '05', base_atk: 1, base_def: 5, name: "Portes-bouclier" },
+   { id: '02', base_atk: 1, base_def: 2, name: "Artisants" },
+   { id: '03', base_atk: 1, base_def: 3, name: "Porte-boucliers" },
+   { id: '04', base_atk: 1, base_def: 4, name: "Gardes de la cité" },
+   { id: '05', base_atk: 1, base_def: 5, name: "Gardes des remparts" },
 
    // Attaque == 2
    { id: '06', base_atk: 2, base_def: 1, name: "Miliciens légers" },
    { id: '07', base_atk: 2, base_def: 2, name: "Miliciens" },
    { id: '08', base_atk: 2, base_def: 3, name: "Miliciens lourds" },
-   { id: '09', base_atk: 2, base_def: 4, name: "Portes-lance" },
-   { id: '10', base_atk: 2, base_def: 5, name: "Gardes de garnison" },
+   { id: '09', base_atk: 2, base_def: 4, name: "Porte-lances" },
+   { id: '10', base_atk: 2, base_def: 5, name: "Pavoisiers" },
 
    // Attaque == 3
    { id: '11', base_atk: 3, base_def: 1, name: "Éclaireurs" },
@@ -99,11 +99,11 @@ const RAW_GROUPS = [
    { id: '20', base_atk: 4, base_def: 5, name: "Chevaliers lourds" },
 
    // Attaque == 5
-   { id: '21', base_atk: 5, base_def: 1, name: "Assassins furtifs" },
-   { id: '22', base_atk: 5, base_def: 2, name: "Spadassins" },
+   { id: '21', base_atk: 5, base_def: 1, name: "Mercenaires" },
+   { id: '22', base_atk: 5, base_def: 2, name: "Assassins furtifs" },
    { id: '23', base_atk: 5, base_def: 3, name: "Duellistes" },
-   { id: '24', base_atk: 5, base_def: 4, name: "Gardes seigneuriaux" },
-   { id: '25', base_atk: 5, base_def: 5, name: "Chevaliers royaux" },
+   { id: '24', base_atk: 5, base_def: 4, name: "Maîtres d'armes" },
+   { id: '25', base_atk: 5, base_def: 5, name: "Élite<br>royale" },
 ];
 let BALANCED_GROUPS = [];
 

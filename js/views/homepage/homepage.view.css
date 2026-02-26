@@ -10,6 +10,7 @@
 
     .player-container {
       --color: red;
+      --filter: ;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -209,12 +210,25 @@
             color: var(--color);
           }
 
-          .pt-box {
-            font-size: 18px;
-            font-weight: 700;
-            margin-left: auto;
-            color: var(--color);
+          .group-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+
+            img {
+              filter: var(--filter);
+              height: 28px;
+            }
+
+            .pt-box {
+              font-size: 18px;
+              font-weight: 700;
+              margin-left: auto;
+              color: var(--color);
+            }
           }
+
         }
       }
       .bottom-area {

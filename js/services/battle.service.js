@@ -76,7 +76,10 @@ function getPlayerGroupsDom(player) {
       
       <span class="group-name">${group.name}</span>
 
-      <span class="pt-box">${group.atk}/${group.def}</span>
+      <div class="group-bottom">
+        <img src="/assets/medias/images/icons/${group.atk}-${group.def}.png" />
+        <span class="pt-box">${group.atk}/${group.def}</span>
+      </div>
     </button>
     `;
   }
@@ -558,7 +561,10 @@ function onSplitGroup(groupId) {
       
       <span class="group-name">${newGroup.name}</span>
 
-      <span class="pt-box">${newGroup.atk}/${newGroup.def}</span>
+      <div class="group-bottom">
+        <img src="/assets/medias/images/icons/${newGroup.atk}-${newGroup.def}.png" />
+        <span class="pt-box">${newGroup.atk}/${newGroup.def}</span>
+      </div>
     </button>
   `;
   const currentDefendingPlayerBottomAreaElement = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}BottomArea`);

@@ -83,8 +83,8 @@ export function setPlayersGameDom() {
   MAIN.innerHTML = `
     <div class="players-container">
       <svg id="battlefield-lines"></svg>
-      <div id="player2Container" class="player-container player-2" style="--color: ${player2.color};">${getPlayerDom(player2)}</div>
-      <div id="player1Container" class="player-container player-1" style="--color: ${player1.color};">${getPlayerDom(player1)}</div>
+      <div id="player2Container" class="player-container player-2" style="--color: ${player2.color}; --filter: ${COLORS.find((e) => e.hsl == player2.color).filter};">${getPlayerDom(player2)}</div>
+      <div id="player1Container" class="player-container player-1" style="--color: ${player1.color}; --filter: ${COLORS.find((e) => e.hsl == player1.color).filter};">${getPlayerDom(player1)}</div>
     </div>
   `;
 
@@ -219,7 +219,10 @@ function getPlayerDom(player) {
       
       <span class="group-name">${group.name}</span>
 
-      <span class="pt-box">${group.atk}/${group.def}</span>
+      <div class="group-bottom">
+        <img src="/assets/medias/images/icons/${group.atk}-${group.def}.png" />
+        <span class="pt-box">${group.atk}/${group.def}</span>
+      </div>
     </button>`;
   }
   return `
