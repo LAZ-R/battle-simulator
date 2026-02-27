@@ -208,6 +208,8 @@ function setPlayerIcon(playerId, newIcon) {
 window.setPlayerIcon = setPlayerIcon;
 
 function getPlayerDom(player) {
+  console.log(location.origin)
+  console.log(location.pathname)
   let groupsStr = '';
   for (let group of player.groups) {
     groupsStr += `
