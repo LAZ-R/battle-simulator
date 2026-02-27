@@ -208,7 +208,6 @@ function setPlayerIcon(playerId, newIcon) {
 window.setPlayerIcon = setPlayerIcon;
 
 function getPlayerDom(player) {
-  console.log(urlPath);
   let groupsStr = '';
   for (let group of player.groups) {
     console.log(`${APP_ORIGIN}/assets/medias/images/icons/${group.atk}-${group.def}.png`);
