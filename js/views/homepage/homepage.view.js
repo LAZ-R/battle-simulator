@@ -220,7 +220,7 @@ function getPlayerDom(player) {
       <span class="group-name">${group.name}</span>
 
       <div class="group-bottom">
-        <img src="/assets/medias/images/icons/${group.atk}-${group.def}.png" />
+        <img src="./assets/medias/images/icons/${group.atk}-${group.def}.png" />
         <span class="pt-box">${group.atk}/${group.def}</span>
       </div>
     </button>`;
