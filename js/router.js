@@ -11,6 +11,7 @@
  * - Sur GitHub Pages : "/mon-repo/" (ex: https://user.github.io/mon-repo/)
  */
 export const APP_BASE_PATH = new URL('../', import.meta.url).pathname;
+export const APP_ORIGIN = `${location.origin}${APP_BASE_PATH}`;
 
 /**
  * Table de routes internes
