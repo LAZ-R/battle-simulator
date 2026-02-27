@@ -208,8 +208,6 @@ function setPlayerIcon(playerId, newIcon) {
 window.setPlayerIcon = setPlayerIcon;
 
 function getPlayerDom(player) {
-  console.log(location.origin)
-  console.log(location.pathname)
   let urlPath = `${location.origin}${location.pathname}`;
   console.log(urlPath);
   let groupsStr = '';
@@ -225,7 +223,7 @@ function getPlayerDom(player) {
       <span class="group-name">${group.name}</span>
 
       <div class="group-bottom">
-        <img src="${urlPath}/assets/medias/images/icons/${group.atk}-${group.def}.png" />
+        <img src="${urlPath}assets/medias/images/icons/${group.atk}-${group.def}.png" />
         <span class="pt-box">${group.atk}/${group.def}</span>
       </div>
     </button>`;

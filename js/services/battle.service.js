@@ -65,6 +65,7 @@ export function startGame() {
 }
 
 function getPlayerGroupsDom(player) {
+  let urlPath = `${location.origin}${location.pathname}`;
   let str = '';
   for (let group of player.groups) {
     str += `
@@ -77,7 +78,7 @@ function getPlayerGroupsDom(player) {
       <span class="group-name">${group.name}</span>
 
       <div class="group-bottom">
-        <img src="/assets/medias/images/icons/${group.atk}-${group.def}.png" />
+        <img src="${urlPath}assets/medias/images/icons/${group.atk}-${group.def}.png" />
         <span class="pt-box">${group.atk}/${group.def}</span>
       </div>
     </button>
@@ -551,6 +552,8 @@ function onSplitGroup(groupId) {
   document.getElementById('')
   CURRENT_DEFENDING_PLAYER.groups.push(newGroup);
 
+  let urlPath = `${location.origin}${location.pathname}`;
+
   const currentDefendingPlayerGroupsElement = document.getElementById(`${CURRENT_DEFENDING_PLAYER.id}Groups`);
   currentDefendingPlayerGroupsElement.innerHTML += `
     <button id="${newGroup.id}" class="group-block" onclick="onGroupClick('${newGroup.id}')">
@@ -562,7 +565,7 @@ function onSplitGroup(groupId) {
       <span class="group-name">${newGroup.name}</span>
 
       <div class="group-bottom">
-        <img src="/assets/medias/images/icons/${newGroup.atk}-${newGroup.def}.png" />
+        <img src="${urlPath}assets/medias/images/icons/${newGroup.atk}-${newGroup.def}.png" />
         <span class="pt-box">${newGroup.atk}/${newGroup.def}</span>
       </div>
     </button>
