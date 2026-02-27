@@ -3,7 +3,7 @@
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)  
 
-Version `0.0.0.3`
+Version `0.0.0.4`
 
 **[Tester la version déployée sur GitHub Pages](https://laz-r.github.io/spa-pwa-template-2026/)**
 
@@ -19,6 +19,7 @@ This is mostly a *proof of concept* so the code here is awfull, I know.
 
 ## Changelog
 
+- v 0.0.0.4 - fix img path
 - v 0.0.0.3 - ajout icones
 - v 0.0.0.2 - division unités par 10 + ajout spin + fleches sous player container
 - v 0.0.0.1 - init
