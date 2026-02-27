@@ -210,8 +210,11 @@ window.setPlayerIcon = setPlayerIcon;
 function getPlayerDom(player) {
   console.log(location.origin)
   console.log(location.pathname)
+  let urlPath = `${location.origin}${location.pathname}`;
+  console.log(urlPath);
   let groupsStr = '';
   for (let group of player.groups) {
+    console.log(`${urlPath}/assets/medias/images/icons/${group.atk}-${group.def}.png`);
     groupsStr += `
     <button id="${group.id}" class="group-block" onclick="onGroupClick('${group.id}')">
       <div>
@@ -222,7 +225,7 @@ function getPlayerDom(player) {
       <span class="group-name">${group.name}</span>
 
       <div class="group-bottom">
-        <img src="${location.origin}${location.pathname}/assets/medias/images/icons/${group.atk}-${group.def}.png" />
+        <img src="${urlPath}/assets/medias/images/icons/${group.atk}-${group.def}.png" />
         <span class="pt-box">${group.atk}/${group.def}</span>
       </div>
     </button>`;
